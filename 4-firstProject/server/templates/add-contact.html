@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block body %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message.decode('utf-8') }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form action="/add" method="post">
+        <label for="name">Write a name:</label>
+        <input type="text" name="name" id="name">
+        <label for="number">Write a number:</label>
+        <input type="number" name="number" id="number">
+        <label for="email">Write a email:</label>
+        <input type="email" name="email" id="email">
+        <input type="submit" value="Add">
+    </form>
+    <a href="/">Return</a>
+
+{% endblock %}
